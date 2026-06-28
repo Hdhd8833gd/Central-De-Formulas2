@@ -73,17 +73,46 @@ while True:
                     print("nenhum valor válido")
 
             case "2":
-                print("Velocidade escalar\na = Δv / Δt\nvf - vi / tf - ti")
+                print("Aceleração\na = Δv / Δt\nvf - vi / tf - ti")
 
-                velocidade_final = input("Digite a velocida final: ")
-                velocidade_inicial = input("Digite a velocida inicial: ")
-                tempo_final = input("Digite o tempo final: ")
-                tempo_inicial = input("Digite o tempo inicial: ")
+                velocidade_final = float(input("Digite a velocida final: "))
+                velocidade_inicial = float(input("Digite a velocida inicial: "))
+                tempo_final = float(input("Digite o tempo final: "))
+                tempo_inicial = float(input("Digite o tempo inicial: "))
+                unidade_medida_temp = input("Qual a unidade de medida do tempo:\ns m h\n").upper().strip()
 
-                calculo = velocidade_final - velocidade_inicial
-                calculo2 = tempo_final - tempo_inicial
+                if unidade_medida_temp == "S":
+                    temp_ms = tempo_final
+                    temp_msi = tempo_inicial
+                    print("km/h")
+
+                elif unidade_medida_temp == "M":
+                   temp_ms =  tempo_final / 60
+                   temp_msi = tempo_inicial / 60
+                   print("M/s")
+
+                elif unidade_medida_temp == "H":
+                    temp_ms / 3600
+                    temp_msi / 3600
+
+                else:
+                    print("nenhum valor válido")
+
+                unidade_velocidade = input("Qual a unidade de medida da velocidade:\n" \
+                "m/s km/h\n").lower().strip()
+
+                if unidade_velocidade == "m/s":
+                    velo_padrao1 = velocidade_final
+                    velo_padrao2 = velocidade_inicial
+
+                elif unidade_velocidade == "km/h":
+                    velo_padrao1 = velocidade_final / 3.6
+                    velo_padrao2 = velocidade_inicial / 3.6
+
+                calculo = velo_padrao1 - velo_padrao2
+                calculo2 = temp_ms - temp_msi
                 resultado = calculo / calculo2
 
-                print(resultado)
+                print(f"{resultado}m/s²")
 
 
