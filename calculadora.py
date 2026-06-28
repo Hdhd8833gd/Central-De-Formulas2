@@ -4,8 +4,7 @@ while True:
     
     print("Escolha o tipo de fórmula")
 
-    escolha = input("Escolha qual calculo\n"
-                    "Matematica (M)\n"
+    escolha = input("Matematica (M)\n"
                     "Física (F)\n").upper().strip()
 
     if escolha == "M":
@@ -32,8 +31,7 @@ while True:
     elif escolha == "F":
         print("Escolha a fórmula")
 
-        recado = (f"escolha a fórmula\n"
-                  "Velocidade média (1)\n Velocidade Escalar (2)\n Aceleração (3)")
+        recado = (f"Velocidade média (1)\nAceleração (2)\nAceleração (3)")
         print(recado)
 
         operacao_2 = input()
@@ -73,3 +71,19 @@ while True:
 
                 else:
                     print("nenhum valor válido")
+
+            case "2":
+                print("Velocidade escalar\na = Δv / Δt\nvf - vi / tf - ti")
+
+                velocidade_final = input("Digite a velocida final: ")
+                velocidade_inicial = input("Digite a velocida inicial: ")
+                tempo_final = input("Digite o tempo final: ")
+                tempo_inicial = input("Digite o tempo inicial: ")
+
+                calculo = velocidade_final - velocidade_inicial
+                calculo2 = tempo_final - tempo_inicial
+                resultado = calculo / calculo2
+
+                print(resultado)
+
+
