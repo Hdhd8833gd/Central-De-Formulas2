@@ -1,14 +1,15 @@
-while True:
-    print(f"Olá seja bem vindo a calculadora de formulas especificas\n"
-          "aqui voce pode fazer calculos de fisica e algumas formulas matematicas")
-    
-    print("Escolha o tipo de fórmula")
+from rich import print
+from rich.panel import Panel
 
-    escolha = input("Matematica (M)\n"
-                    "Física (F)\n").upper().strip()
+while True:
+    print(Panel("[cyan]\nOlá seja bem vindo a calculadora de formulas especificas[/cyan]\n"))
+    
+    print("[yellow]Escolha o tipo de fórmula[/yellow]")
+
+    escolha = input("Matematica (M)\nFísica (F)\n").upper().strip()
 
     if escolha == "M":
-        print("Operações de Matematica")
+        print(Panel("[cyan]Operações de Matematica[/cyan]"))
 
         aviso = (f"Escolha a operação\n"
          "Função Afim (1)\n etc (2)\n etc (3)\n")
@@ -29,16 +30,16 @@ while True:
         
 
     elif escolha == "F":
-        print("Escolha a fórmula")
+        print(Panel("[cyan]Fórmulas de física[/cyan]"))
 
-        recado = (f"Velocidade média (1)\nAceleração (2)\nAceleração (3)")
+        recado = ("Velocidade média (1)\nAceleração (2)\nAceleração (3)")
         print(recado)
 
         operacao_2 = input()
 
         match operacao_2:
             case "1":
-                print("Velocidade média\n vm = Δs / Δt")
+                print("[green]Velocidade média\n vm = Δs / Δt[/green]")
 
                 deslocamento = float(input("Qual o deslocamento (espaço)? "))
                 tempo = float(input("Qual o tempo (T)? "))
@@ -63,17 +64,17 @@ while True:
                 velocidade_media = deslocamento / tempo_segundos
 
                 if unidade == "m":
-                    print(f"Velocidade média: {velocidade_media} M/s")
+                    print(Panel(f"[blue]Velocidade média: {velocidade_media} M/s[/blue]"))
 
                 elif unidade == "km":
                     velocidade_kmh = velocidade_media * 3.6
-                    print(f"Velocidade média: {velocidade_kmh} Km/h")
+                    print(Panel(f"[blue]Velocidade média: {velocidade_kmh} Km/h[/blue]"))
 
                 else:
-                    print("nenhum valor válido")
+                    print("[red]nenhum valor válido[/red]")
 
             case "2":
-                print("Aceleração\na = Δv / Δt\nvf - vi / tf - ti")
+                print("[green]Aceleração\na = Δv / Δt\nvf - vi / tf - ti[/green]")
 
                 velocidade_final = float(input("Digite a velocida final: "))
                 velocidade_inicial = float(input("Digite a velocida inicial: "))
@@ -96,7 +97,7 @@ while True:
                     temp_msi / 3600
 
                 else:
-                    print("nenhum valor válido")
+                    print("[red]nenhum valor válido[/red]")
 
                 unidade_velocidade = input("Qual a unidade de medida da velocidade:\n" \
                 "m/s km/h\n").lower().strip()
@@ -113,6 +114,6 @@ while True:
                 calculo2 = temp_ms - temp_msi
                 resultado = calculo / calculo2
 
-                print(f"{resultado}m/s²")
+                print(Panel(f"[blue]Resultado = {resultado}m/s²[/blue]"))
 
 
