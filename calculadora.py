@@ -41,20 +41,25 @@ while True:
 
                 estudo_b = float(input("Digite o valor de B: "))
                 estudo_a = float(input("Digite o valor de A: "))
-
-                if estudo_a == 0:
-                  print("[red]ERRO: A não pode ser zero (função não seria afim)[/red]")
-                  continue
         
 
-                calculo_estudo = -estudo_b / estudo_a
-                resultado_estudo = calculo_estudo
-
                 if estudo_a > 0:
-                    print(f"A função é positiva\nF positivo se X > {resultado_estudo}\nF negativo se X < {resultado_estudo}")
+                 calculo_estudo = -estudo_b / estudo_a
+                 resultado_estudo = calculo_estudo
+                 print(f"A função é [green]positiva[/green]\nF positivo se X > {resultado_estudo}\nF negativo se X < {resultado_estudo}")
+
+                elif estudo_a < 0:
+                  calculo_estudo = -estudo_b / estudo_a
+                  resultado_estudo = calculo_estudo
+                  print(f"A função é [yellow]negativa[/yellow]\nF positivo se X < {resultado_estudo}\nF negativo se X > {resultado_estudo}")
+
+
+                elif estudo_a == 0:
+                    print(f"A função é [green]constante[/green]\no valor será sempre o valor de B {estudo_b}\no valor do eixo Y nunca mudará")
 
                 else:
-                    print(f"A função é negativa\nF positivo se X < {resultado_estudo}\nF negativo se X > {resultado_estudo}")
+                    print("[red]ERRO nenhum valor válido[/red]")
+                    continue
 
 
             case "3":
