@@ -8,11 +8,11 @@ while True:
 
     escolha = input("Matematica (M)\nFísica (F)\n").upper().strip()
 
-    if escolha == "M":
+    if escolha == "M" or escolha == "MATEMATICA":
         print(Panel("[cyan]Operações de Matematica[/cyan]"))
 
         aviso = (f"Escolha a operação\n"
-         "Função Afim (1)\n etc (2)\n etc (3)\n")
+         "Funções (1)\nEstudo do sinal da função (2)\netc (3)\n")
         
         print(aviso)
 
@@ -20,17 +20,48 @@ while True:
         
         match operacao:
             case "1":
-                print("[green]F(X)= A . X + B[/green]")
-                print("oi")
+                print("[green]Funções\nF(X)= A . X + B[/green]")
+
+                valor_a = float(input("Digite o valor de A: "))
+                valor_b = float(input("Digite o valor de B: "))
+                valor_x = float(input("Digite o valor de X (Variável): "))
+                
+                calculo_funcao = valor_a * valor_x + valor_b
+                resultado_afim = calculo_funcao
+
+                if valor_a == 0 and valor_b == 0:
+                    print(f"A função é [green]identidade[/green]\no resultado será o mesmo valor de X então Y = {valor_x}")
+
+                else:
+                    print(f"Para o valor de X ({valor_x}) Y é: {resultado_afim}")
+
 
             case "2":
-                print(12)
+                print("Estudo do sinal da função\n-B/A")
+
+                estudo_b = float(input("Digite o valor de B: "))
+                estudo_a = float(input("Digite o valor de A: "))
+
+                if estudo_a == 0:
+                  print("[red]ERRO: A não pode ser zero (função não seria afim)[/red]")
+                  continue
+        
+
+                calculo_estudo = -estudo_b / estudo_a
+                resultado_estudo = calculo_estudo
+
+                if estudo_a > 0:
+                    print(f"A função é positiva\nF positivo se X > {resultado_estudo}\nF negativo se X < {resultado_estudo}")
+
+                else:
+                    print(f"A função é negativa\nF positivo se X < {resultado_estudo}\nF negativo se X > {resultado_estudo}")
+
 
             case "3":
                 print("olá")
         
 
-    elif escolha == "F":
+    elif escolha == "F" or escolha == "FISICA":
         print(Panel("[cyan]Fórmulas de física[/cyan]"))
 
         recado = ("Velocidade média (1)\nAceleração (2)\nAceleração (3)")
@@ -57,8 +88,8 @@ while True:
                     tempo_segundos = tempo * 3600
 
                 else:
-                    print("Unidade inválida")
-                    break
+                    print("[red]Unidade inválida[/red]")
+                    continue
 
                 unidade = input("Escolha a unidade (m ou km): ").strip().lower()
 
@@ -89,16 +120,17 @@ while True:
                     print("km/h")
 
                 elif unidade_medida_temp == "M":
-                   temp_ms =  tempo_final / 60
-                   temp_msi = tempo_inicial / 60
+                   temp_ms =  tempo_final * 60
+                   temp_msi = tempo_inicial * 60
                    print("M/s")
 
                 elif unidade_medida_temp == "H":
-                    temp_ms / 3600
-                    temp_msi / 3600
+                    temp_ms = tempo_final * 3600
+                    temp_msi = tempo_inicial * 3600
 
                 else:
                     print("[red]nenhum valor válido[/red]")
+                    continue
 
                 unidade_velocidade = input("Qual a unidade de medida da velocidade:\n" \
                 "m/s km/h\n").lower().strip()
@@ -110,6 +142,10 @@ while True:
                 elif unidade_velocidade == "km/h":
                     velo_padrao1 = velocidade_final / 3.6
                     velo_padrao2 = velocidade_inicial / 3.6
+
+                else:
+                    print("[red]ERRO nenhum valor válido[/red]")
+                    continue
 
                 calculo = velo_padrao1 - velo_padrao2
                 calculo2 = temp_ms - temp_msi
