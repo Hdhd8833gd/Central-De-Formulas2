@@ -20,6 +20,7 @@ while True:
         
         match operacao:
             case "1":
+                print("[green]F(X)= A . X + B[/green]")
                 print("oi")
 
             case "2":
